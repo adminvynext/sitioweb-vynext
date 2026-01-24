@@ -10,7 +10,9 @@ interface FormData {
     phone: string;
     company: string;
     service: string;
+
     message: string;
+    city_check: string; // Honeypot field
 }
 
 interface FormErrors {
@@ -36,7 +38,9 @@ export const ContactForm = () => {
         phone: '',
         company: '',
         service: services[0],
-        message: ''
+
+        message: '',
+        city_check: ''
     });
 
     const [errors, setErrors] = useState<FormErrors>({});
@@ -117,6 +121,26 @@ export const ContactForm = () => {
         setStatus('loading');
 
         try {
+            // Honeypot check
+            if (formData.city_check) {
+                // If honeypot is filled, simulate success but don't send
+                console.log('Bot detected. Submission blocked.');
+                setStatus('success');
+                setFormData({
+                    from_name: '',
+                    from_email: '',
+                    phone: '',
+                    company: '',
+                    service: services[0],
+                    message: '',
+                    city_check: ''
+                });
+                setTouched(new Set());
+                setErrors({});
+                setTimeout(() => setStatus('idle'), 5000);
+                return;
+            }
+
             // EmailJS configuration
             await emailjs.send(
                 'service_vynext', // User needs to create this in EmailJS
@@ -132,7 +156,8 @@ export const ContactForm = () => {
                 phone: '',
                 company: '',
                 service: services[0],
-                message: ''
+                message: '',
+                city_check: ''
             });
             setTouched(new Set());
             setErrors({});
@@ -164,6 +189,20 @@ export const ContactForm = () => {
                 <div className="max-w-3xl mx-auto">
                     <AnimatedSection variant="fadeInUp" delay={0.2}>
                         <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur-md border border-gray-300 p-8 rounded-3xl shadow-2xl">
+                            {/* Honeypot field - Invisible to users */}
+                            <div className="absolute opacity-0 -z-10 w-0 h-0 overflow-hidden">
+                                <label htmlFor="city_check">City</label>
+                                <input
+                                    type="text"
+                                    id="city_check"
+                                    name="city_check"
+                                    value={formData.city_check}
+                                    onChange={handleChange}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+                            </div>
+
                             <div className="grid md:grid-cols-2 gap-6 mb-6">
                                 {/* Nombre */}
                                 <div>
@@ -258,7 +297,7 @@ export const ContactForm = () => {
                                     className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:border-primary transition-colors"
                                 >
                                     {services.map(service => (
-                                        <option key={service} value={service} className="bg-gray-900">
+                                        <option key={service} value={service}>
                                             {service}
                                         </option>
                                     ))}
