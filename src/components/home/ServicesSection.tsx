@@ -123,6 +123,7 @@ export default function ServicesSection() {
                   {/* Link */}
                   <motion.a
                     href="/servicios"
+                    aria-label={`Más información sobre ${service.title}`}
                     className="inline-flex items-center space-x-2 text-[var(--color-secondary)] font-semibold group-hover:translate-x-2 transition-transform"
                   >
                     <span>Más información</span>
