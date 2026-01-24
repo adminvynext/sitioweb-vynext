@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PlansHero from '../components/plans/PlansHero';
+import PricingCards from '../components/plans/PricingCards';
+import ComparisonTable from '../components/plans/ComparisonTable';
+import PlansCTA from '../components/plans/PlansCTA';
+---
+
+<Layout 
+  title="Planes y Precios - Vynext" 
+  description="Elige el plan perfecto para tu proyecto. Soluciones flexibles desde startups hasta empresas."
+>
+  <PlansHero client:load />
+  <PricingCards client:load />
+  <ComparisonTable client:load />
+  <PlansCTA client:load />
+</Layout>

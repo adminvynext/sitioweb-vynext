@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import CustomCursor from '../components/CustomCursor';
+import WhatsAppButton from '../components/contact/WhatsAppButton';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { 
+  title, 
+  description = 'Vynext - Expertos en desarrollo de software y diseño web en Guatemala. Soluciones tecnológicas innovadoras para empresas.',
+  keywords = 'desarrollo de software guatemala, desarrollo web, sistemas a la medida, aplicaciones móviles, vynext'
+} = Astro.props;
+
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon32x32.png" />
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
+    
+    <title>{title}</title>
+  </head>
+  <body>
+    <CustomCursor client:load />
+    <WhatsAppButton client:load />
+    <Header client:load />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutHero from '../components/about/AboutHero';
+import OurStory from '../components/about/OurStory';
+import MissionValues from '../components/about/MissionValues';
+
+import AboutCTA from '../components/about/AboutCTA';
+import CustomCursor from '../components/CustomCursor';
+---
+
+<Layout 
+  title="Nosotros | Vynext - Agencia de Desarrollo Web y Software" 
+  description="Conoce Vynext, una startup de desarrollo web fundada por talento joven. Innovación, pasión y código de calidad para transformar tus ideas."
+>
+  <CustomCursor client:load />
+  
+  <main class="relative bg-gray-50 text-gray-900 min-h-screen selection:bg-primary selection:text-white overflow-hidden">
+    {/* Fondo animado global */}
+    <div className="fixed inset-0 z-0">
+      {/* HexagonBackground removed */}
+    </div>
+
+    {/* Contenido en capas superiores */}
+    <div className="relative z-10">
+      <AboutHero client:load />
+      <OurStory client:visible />
+      <MissionValues client:visible />
+
+      <AboutCTA client:visible />
+    </div>
+  </main>
+</Layout>

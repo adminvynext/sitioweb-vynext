@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicesHero from '../components/services/ServicesHero';
+import ServiceDetail from '../components/services/ServiceDetail';
+import ProcessTimeline from '../components/services/ProcessTimeline';
+import TechStack from '../components/services/TechStack';
+import ServicesCTA from '../components/services/ServicesCTA';
+---
+
+<Layout 
+  title="Servicios - Vynext | Desarrollo de Software y Web Profesional" 
+  description="Descubre nuestros servicios de desarrollo de software, desarrollo web, sistemas empresariales, aplicaciones móviles y soluciones cloud."
+  keywords="desarrollo de software, desarrollo web, sistemas empresariales, aplicaciones móviles, soluciones cloud, vynext servicios"
+>
+  <div class="relative">
+    <ServicesHero client:load />
+    <ServiceDetail client:load />
+    <ProcessTimeline client:load />
+    <TechStack client:load />
+    <ServicesCTA client:load />
+  </div>
+</Layout>

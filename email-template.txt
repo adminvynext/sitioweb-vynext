@@ -1,0 +1,82 @@
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px 0;">
+    <tr>
+        <td align="center">
+            <table style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" cellpadding="0" cellspacing="0">
+                
+                <!-- Header -->
+                <tr>
+                    <td style="background: linear-gradient(135deg, #4b00ff 0%, #00d1ff 100%); padding: 30px 20px; text-align: center;">
+                        <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">Vynext</h1>
+                        <p style="margin: 10px 0 0 0; color: #ffffff; font-size: 14px; opacity: 0.9;">Nuevo Mensaje de Contacto</p>
+                    </td>
+                </tr>
+
+                <!-- Content -->
+                <tr>
+                    <td style="padding: 30px 20px;">
+                        <p style="margin: 0 0 20px 0; color: #333333; font-size: 16px; line-height: 1.6;">
+                            Has recibido un nuevo mensaje desde el formulario de contacto.
+                        </p>
+
+                        <!-- Nombre -->
+                        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #4b00ff;">
+                            <p style="margin: 0 0 8px 0; color: #6c757d; font-size: 12px; text-transform: uppercase; font-weight: bold;">NOMBRE</p>
+                            <p style="margin: 0; color: #212529; font-size: 16px; font-weight: 600;">{{from_name}}</p>
+                        </div>
+
+                        <!-- Email -->
+                        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #00d1ff;">
+                            <p style="margin: 0 0 8px 0; color: #6c757d; font-size: 12px; text-transform: uppercase; font-weight: bold;">EMAIL</p>
+                            <p style="margin: 0; color: #212529; font-size: 14px;">
+                                <a href="mailto:{{from_email}}" style="color: #4b00ff; text-decoration: none;">{{from_email}}</a>
+                            </p>
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #00d1ff;">
+                            <p style="margin: 0 0 8px 0; color: #6c757d; font-size: 12px; text-transform: uppercase; font-weight: bold;">TELÉFONO</p>
+                            <p style="margin: 0; color: #212529; font-size: 14px;">
+                                <a href="tel:{{phone}}" style="color: #4b00ff; text-decoration: none;">{{phone}}</a>
+                            </p>
+                        </div>
+
+                        <!-- Empresa -->
+                        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #a6a6a6;">
+                            <p style="margin: 0 0 8px 0; color: #6c757d; font-size: 12px; text-transform: uppercase; font-weight: bold;">EMPRESA</p>
+                            <p style="margin: 0; color: #212529; font-size: 14px;">{{company}}</p>
+                        </div>
+
+                        <!-- Servicio -->
+                        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #a6a6a6;">
+                            <p style="margin: 0 0 8px 0; color: #6c757d; font-size: 12px; text-transform: uppercase; font-weight: bold;">SERVICIO DE INTERÉS</p>
+                            <p style="margin: 0; color: #212529; font-size: 14px;">{{service}}</p>
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div style="margin: 30px 0; padding: 20px; background-color: #f8f9fa; border-left: 4px solid #4b00ff; border-radius: 5px;">
+                            <p style="margin: 0 0 15px 0; color: #6c757d; font-size: 12px; text-transform: uppercase; font-weight: bold;">MENSAJE</p>
+                            <p style="margin: 0; color: #212529; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">{{message}}</p>
+                        </div>
+
+                        <!-- Botón -->
+                        <div style="text-align: center; margin: 30px 0;">
+                            <a href="mailto:{{from_email}}" style="display: inline-block; background: linear-gradient(135deg, #4b00ff 0%, #00d1ff 100%); color: #ffffff; text-decoration: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 16px;">
+                                Responder por Email
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e9ecef;">
+                        <p style="margin: 0 0 5px 0; color: #6c757d; font-size: 14px;">Enviado desde el formulario de contacto de</p>
+                        <p style="margin: 0 0 10px 0; color: #4b00ff; font-size: 16px; font-weight: bold;">vynext.com</p>
+                        <p style="margin: 0; color: #adb5bd; font-size: 12px;">&copy; 2025 Vynext. Todos los derechos reservados.</p>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>

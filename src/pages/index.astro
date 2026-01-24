@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/home/HeroSection';
+import ServicesSection from '../components/home/ServicesSection';
+import WhyChooseUs from '../components/home/WhyChooseUs';
+---
+
+<Layout 
+  title="Vynext | Desarrollo de Software y Web a la Medida en Guatemala" 
+  description="Empresa líder en desarrollo de software y páginas web en Guatemala. Creamos soluciones digitales, apps móviles y sistemas a la medida para tu negocio."
+  keywords="desarrollo de software guatemala, desarrollo web guatemala, páginas web guatemala, software a la medida, aplicaciones móviles guatemala, vynext, transformación digital"
+>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Vynext",
+      "image": "https://vynext.lat/og-image.jpg",
+      "@id": "https://vynext.lat",
+      "url": "https://vynext.lat",
+      "telephone": "+50230050209",
+      "email": "admin@vynext.lat",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guatemala City",
+        "addressCountry": "GT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 14.6349,
+        "longitude": -90.5069
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "priceRange": "$$"
+    }
+  </script>
+
+  <div class="relative">
+    <HeroSection client:load />
+    <ServicesSection client:load />
+    <WhyChooseUs client:load />
+  </div>

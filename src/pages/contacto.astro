@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactHero from '../components/contact/ContactHero';
+import ContactForm from '../components/contact/ContactForm';
+import ContactInfo from '../components/contact/ContactInfo';
+import ContactMap from '../components/contact/ContactMap';
+import CustomCursor from '../components/CustomCursor';
+---
+
+<Layout 
+  title="Contacto | Vynext - Agencia de Desarrollo Web y Software" 
+  description="¿Tienes un proyecto en mente? Contáctanos y cuéntanos cómo podemos ayudarte. Respuesta garantizada en 24 horas."
+>
+  <CustomCursor client:load />
+  
+  <main className="relative bg-gray-50 text-gray-900 min-h-screen selection:bg-primary selection:text-white overflow-hidden">
+    {/* Fondo animado global */}
+    <div className="fixed inset-0 z-0">
+      {/* HexagonBackground removed */}
+    </div>
+
+    {/* Contenido en capas superiores */}
+    <div className="relative z-10">
+      {/* Section 1: Hero - Normal (Transparent, hexagons visible) */}
+      <ContactHero client:load />
+      
+      {/* Section 2: Form - Blur (Opaque background) */}
+      <ContactForm client:load />
+      
+      {/* Section 3: Info - Normal (Transparent, hexagons visible) */}
+      <ContactInfo client:visible />
+      
+      {/* Section 4: Map - Blur (Opaque background) */}
+      <ContactMap client:visible />
+    </div>
+  </main>
+</Layout>
