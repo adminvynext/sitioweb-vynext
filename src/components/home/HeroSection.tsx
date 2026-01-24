@@ -63,14 +63,20 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight min-h-[1.2em]"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary to-gray-700">
-              {displayText}
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-1 h-12 sm:h-16 lg:h-20 bg-[var(--color-secondary)] ml-2 align-middle"
-              />
-            </span>
+            <div className="relative inline-block">
+              {/* Invisible placeholder to reserve exact space (fixes CLS) */}
+              <span className="invisible opacity-0">{fullText}</span>
+
+              {/* Visible animated text overlay */}
+              <span className="absolute top-0 left-0 w-full bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary to-gray-700">
+                {displayText}
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block w-1 h-12 sm:h-16 lg:h-20 bg-[var(--color-secondary)] ml-2 align-middle"
+                />
+              </span>
+            </div>
           </motion.h1>
 
           {/* Subtitle */}
