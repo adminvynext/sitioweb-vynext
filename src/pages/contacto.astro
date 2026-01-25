@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ContactHero from '../components/contact/ContactHero';
 import ContactForm from '../components/contact/ContactForm';
 import ContactInfo from '../components/contact/ContactInfo';
-import ContactMap from '../components/contact/ContactMap';
+
 import CustomCursor from '../components/CustomCursor';
 ---
 
@@ -30,8 +30,7 @@ import CustomCursor from '../components/CustomCursor';
       {/* Section 3: Info - Normal (Transparent, hexagons visible) */}
       <ContactInfo client:visible />
       
-      {/* Section 4: Map - Blur (Opaque background) */}
-      <ContactMap client:visible />
+
     </div>
   </main>
 </Layout>

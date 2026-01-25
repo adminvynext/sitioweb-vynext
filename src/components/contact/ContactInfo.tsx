@@ -1,14 +1,9 @@
 import React from 'react';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '../../utils/animations';
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+import { Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
 
 const contactInfo = [
-    {
-        icon: MapPin,
-        title: 'Dirección',
-        content: 'Ciudad de Guatemala, Guatemala',
-        subContent: 'Zona 10, Edificio Placeholder'
-    },
+
     {
         icon: Phone,
         title: 'Teléfono',
@@ -46,7 +41,7 @@ export const ContactInfo = () => {
                 </AnimatedSection>
 
                 {/* Contact Info Cards */}
-                <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                     {contactInfo.map((item, index) => (
                         <StaggerItem key={index}>
                             <div className="bg-white border border-gray-200 p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 h-full shadow-lg">
