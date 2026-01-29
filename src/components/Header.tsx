@@ -4,8 +4,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { name: 'Inicio', href: '/' },
-  { name: 'Servicios', href: '/servicios' },
-  { name: 'Planes', href: '/planes' },
+  {
+    name: 'Servicios',
+    href: '/servicios',
+    submenu: [
+      { name: 'Creación de páginas web', href: '/servicios/paginas-web-guatemala' },
+      { name: 'Sistemas a la medida', href: '/servicios/desarrollo-software-medida' },
+      { name: 'Desarrollo de Apps Móviles', href: '/servicios/desarrollo-apps-moviles' }
+    ]
+  },
   { name: 'Nosotros', href: '/nosotros' },
 ];
 
@@ -37,21 +44,45 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="px-4 py-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors relative group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {item.name}
-                <motion.span
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
+              <div key={item.name} className="relative group">
+                <motion.a
+                  href={item.href}
+                  className="px-4 py-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors relative flex items-center gap-1"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {item.name}
+                  {item.submenu && (
+                    <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                  <motion.span
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary origin-left"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
+
+                {/* Dropdown Menu */}
+                {item.submenu && (
+                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 min-w-[260px]">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-xl border border-gray-100 overflow-hidden p-2">
+                      {item.submenu.map((subItem) => (
+                        <motion.a
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-3 rounded-lg text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:bg-primary/5 transition-colors"
+                          whileHover={{ x: 5 }}
+                        >
+                          {subItem.name}
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
 
             <motion.a
@@ -88,17 +119,37 @@ export default function Header() {
           >
             <div className="px-4 py-6 space-y-3">
               {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-4 py-3 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:bg-gray-100 transition-colors"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </motion.a>
+                <div key={item.name}>
+                  <motion.a
+                    href={item.href}
+                    className="flex items-center justify-between px-4 py-3 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:bg-gray-100 transition-colors"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => !item.submenu && setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </motion.a>
+
+                  {item.submenu && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      className="pl-4 space-y-1"
+                    >
+                      {item.submenu.map((subItem) => (
+                        <a
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-500 hover:text-primary rounded-lg hover:bg-gray-50 transition-colors"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </div>
               ))}
 
               <motion.a

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WebDesignHero from '../../components/services/WebDesignHero';
+import PricingCards from '../../components/plans/PricingCards';
+import ComparisonTable from '../../components/plans/ComparisonTable';
+import PlansCTA from '../../components/plans/PlansCTA';
+---
+
+<Layout 
+  title="Páginas Web en Guatemala | Desarrollo y Diseño Web Profesional - Vynext" 
+  description="Explora nuestros planes de desarrollo web y software a medida. Precios transparentes y soluciones escalables para tu negocio en Guatemala."
+>
+  <WebDesignHero client:load />
+  <PricingCards client:load />
+  <ComparisonTable client:load />
+  <PlansCTA client:load />
+</Layout>

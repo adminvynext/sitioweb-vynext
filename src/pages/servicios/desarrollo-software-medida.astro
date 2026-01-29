@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SoftwareHero from '../../components/services/SoftwareHero';
+import SoftwareSolutions from '../../components/services/SoftwareSolutions';
+import SoftwareCTA from '../../components/services/SoftwareCTA';
+---
+
+<Layout 
+  title="Sistemas a la Medida para Empresas | Desarrollo de Software - Vynext" 
+  description="Desarrollo de software personalizado en Guatemala. Automatización de inventarios, CRM y facturación electrónica FEL. Soluciones escalables para tu empresa."
+>
+  <SoftwareHero client:load />
+  <SoftwareSolutions client:load />
+  <SoftwareCTA client:load />
+</Layout>

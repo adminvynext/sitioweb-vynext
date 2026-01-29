@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AppsHero from '../../components/services/AppsHero';
+import AppsFeatures from '../../components/services/AppsFeatures';
+import AppsCTA from '../../components/services/AppsCTA';
+---
+
+<Layout 
+  title="Creación de Apps en Guatemala | Desarrollo iOS y Android - Vynext" 
+  description="Desarrollo de aplicaciones móviles híbridas y nativas en Guatemala. Apps para iOS y Android con un solo código base. Diseño UX/UI premium."
+>
+  <AppsHero client:load />
+  <AppsFeatures client:load />
+  <AppsCTA client:load />
+</Layout>
